@@ -1,0 +1,21 @@
+<div class="card container">
+  <div class="card-body">
+    <%= form_with model: @account do |form| %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+
+      <%= form.label :cvv, {class: "form-label"}  %>
+      <%= form.number_field :cvv, {class: "form-control", placeholder: "cvv"} %><br>
+      <% @account.errors.full_messages_for(:cvv).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+
+      <%= form.label :credit_card_number, {class: "form-label"}  %>
+      <%= form.text_field :credit_card_number, {class: "form-control", placeholder: "credit-card-number"} %><br>
+      <% @account.errors.full_messages_for(:credit_card_number).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+
+      <%= form.submit "create account" %>
+    <% end %>
+  </div>
+</div>

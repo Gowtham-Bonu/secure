@@ -11,6 +11,11 @@ module Secure
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    config.filter_parameters << :cvv
+    config.filter_parameters << :credit_card_number
+    config.filter_parameters << :password
+
+    config.session_store :cookie_store, expire_after: 1800
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
