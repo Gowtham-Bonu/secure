@@ -10,11 +10,11 @@ class AccountsController < ApplicationController
   end
 
   def create
-    @account = Account.new(account_params)
+    @account = current_user.build_account(account_params)
     if @account.save
       redirect_to root_path, notice: "you have successfully created an account!"
     else
-      flash.now[:alert] = "invalid action!"
+      flash.now[:alert] = [@account.errors.full_messages].join(", ")
       render :new, status: :unprocessable_entity
     end
   end
@@ -22,6 +22,6 @@ class AccountsController < ApplicationController
   private
 
     def account_params
-      params.require(:account).permit(:cvv, :credit_card_number, :user_id)
+      params.require(:account).permit(:cvv, :credit_card_number)
     end
 end
