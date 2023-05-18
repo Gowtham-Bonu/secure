@@ -1,0 +1,14 @@
+<div class="card container">
+  <div class="card-container">
+    <%= form_with url: login_path do |form| %>
+      <%= form.label :email, {class: "form-label"} %>
+      <%= form.text_field :email, {class: "form-control", placeholder: "email"} %><br>
+
+      <%= form.label :password, {class: "form-label"} %>
+      <%= form.text_field :password, {class: "form-control", placeholder: "password"} %><br>
+
+      <%= form.submit "log in" %>
+    <% end %>
+  </div>
+  <%= button_to "new user", signup_path, method: :get, class: "btn btn-info mt-4" %>
+</div>

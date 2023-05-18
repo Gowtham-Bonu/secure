@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cvv: 1
+  credit_card_number: MyString
+
+two:
+  cvv: 1
+  credit_card_number: MyString
